@@ -43,4 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* 
+    one to many relation
+    user->Loan_requests
+    */
+    function UserLoanRequest()
+    {
+        return $this->hasMany('App\Models\Loan_requests','users_id');
+    }
 }

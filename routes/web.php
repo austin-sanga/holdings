@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\LoansController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,5 @@ Route::view('login','login');
 Route::post('/login',[UsersController::class,'login']);
 
 Route::get('/dashboard',[UsersController::class,'dashboard']);
+
+Route::post('/LoanRequest',[LoansController::class,'LoanRequest']);
