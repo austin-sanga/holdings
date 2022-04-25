@@ -53,3 +53,5 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Loan_requests','users_id');
     }
 }
+
+

@@ -13,7 +13,7 @@ class CreateLoanRequestTable extends Migration
      */
     public function up()
     {
-        Schema::create('Loan_request', function (Blueprint $table) {
+        Schema::create('loan_request', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('users_id');
             $table->Biginteger('amount');
@@ -30,6 +30,6 @@ class CreateLoanRequestTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_loan_request');
+        Schema::dropIfExists('loan_request');
     }
 }

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Loan_requests extends Model
 {
-    public $table = "Loan_request";
+    public $table = "loan_request";
     use HasFactory;
 }

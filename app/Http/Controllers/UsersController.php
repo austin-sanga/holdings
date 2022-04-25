@@ -48,8 +48,26 @@ class UsersController extends Controller
         ])->onlyInput('email');
     }
 
+    function logout(Request $req)
+    {
+        Auth::logout();
+
+        $req->session()->invalidate();
+
+        $req->session()->regenerateToken();
+
+        return redirect('/login');
+    }
+
     function dashboard()
     {
-        return view('dashboard');
+         // this function fetches the data of logged in user
+         $user = auth()->user();
+
+         $user_id = ($user->id);
+   
+         return view('dashboard',['user_id'=>$user_id]);
     }
+
+
 }
