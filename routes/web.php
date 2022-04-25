@@ -25,3 +25,7 @@ Route::view('register','register');
 Route::post('/register',[UsersController::class,'register']);
 
 Route::view('login','login');
+
+Route::post('/login',[UsersController::class,'login']);
+
+Route::get('/dashboard',[UsersController::class,'dashboard']);

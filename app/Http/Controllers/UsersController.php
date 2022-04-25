@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 
@@ -24,5 +25,31 @@ class UsersController extends Controller
          $result = $user->save();
 
             return redirect('login');
+    }
+
+    function login(Request $req)
+    {
+        $credentials =  $req->validate([
+            'email' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        // checking match of the filled data with the database
+        if (Auth::attempt($credentials))
+        {
+            $req->session()->regenerate();
+
+            // i passed the route of a controller to view confessions to a view
+            return redirect()->intended('dashboard'); 
+        }
+
+        return back()->withErrors([
+            'email'=>'The provided credentials do not match our records.'
+        ])->onlyInput('email');
+    }
+
+    function dashboard()
+    {
+        return view('dashboard');
     }
 }
