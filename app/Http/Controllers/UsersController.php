@@ -17,6 +17,7 @@ class UsersController extends Controller
 
         $user->name=$req->name;
         $user->email=$req->email;
+        $user->role=$req->role;
 
         $password = request('password');
         $hashed = Hash::make($password);
@@ -59,11 +60,23 @@ class UsersController extends Controller
         return redirect('/login');
     }
 
+    /* 
+    this passes a dashboard verification check
+    desides on which dashboard the user belongs
+    */
     function dashboard()
     {
-        
-         return view('dashboard');
+        $user = auth()->user();
+
+        $role = ($user->role);
+        if($role==1)
+        {
+            return view('admindash');
+        }else {
+            return view('dashboard');
+        }    
     }
+
 
 
 }
