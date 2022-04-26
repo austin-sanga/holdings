@@ -19,5 +19,20 @@ class LoansController extends Controller
         return redirect('/dashboard');
     }
 
+    function beg()
+    {
+        $user = auth()->user();
+
+        $user_id = ($user->id);
+  
+        return view('beg',['user_id'=>$user_id]);
+   }
+        
+    
+    function beggers()
+    {
+        return view('beggers');
+    }
+
 
 }

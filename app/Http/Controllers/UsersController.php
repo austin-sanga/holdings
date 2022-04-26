@@ -61,12 +61,8 @@ class UsersController extends Controller
 
     function dashboard()
     {
-         // this function fetches the data of logged in user
-         $user = auth()->user();
-
-         $user_id = ($user->id);
-   
-         return view('dashboard',['user_id'=>$user_id]);
+        
+         return view('dashboard');
     }
 
 

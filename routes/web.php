@@ -34,3 +34,7 @@ Route::get('/logout',[UsersController::class,'logout']);
 Route::get('/dashboard',[UsersController::class,'dashboard']);
 
 Route::post('/LoanRequest',[LoansController::class,'LoanRequest']);
+
+Route::get('/beg',[LoansController::class,'beg']);
+
+Route::get('/beggers',[LoansController::class,'beggers']);
