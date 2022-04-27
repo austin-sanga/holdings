@@ -24,14 +24,17 @@ class LoansController extends Controller
         $user = auth()->user();
 
         $user_id = ($user->id);
+
+        $beg = Loan_requests::all(); 
   
-        return view('beg',['user_id'=>$user_id]);
+        return view('beg',['user_id'=>$user_id,'beg'=>$beg]);
    }
-        
+
     
     function beggers()
     {
-        return view('beggers');
+        $beg = Loan_requests::all(); 
+        return view('beggers',['beg'=>$beg]);
     }
 
 
