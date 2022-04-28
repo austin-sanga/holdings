@@ -14,6 +14,8 @@ class User extends Authenticatable
     
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $primaryKey = "id";
+
     /**
      * The attributes that are mass assignable.
      *
@@ -48,9 +50,10 @@ class User extends Authenticatable
     one to many relation
     user->Loan_requests
     */
-    function UserLoanRequest()
+    function getLoanRequests()
     {
-        return $this->hasMany('App\Models\Loan_requests','users_id');
+        // seecond paramenter at the end defines foreign key
+        return $this->hasMany(Loan_requests::class,'users_id');
     }
 }
 

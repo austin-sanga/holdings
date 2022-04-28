@@ -13,10 +13,11 @@ class LoansController extends Controller
     {
         $loan = new Loan_requests;
         $loan->users_id = $req->users_id;
+        $loan->LoanType=$req->LoanType;
         $loan->amount=$req->amount;
         $loan->save();
 
-        return redirect('/dashboard');
+        return redirect('/beg');
     }
 
     function beg()
@@ -25,7 +26,7 @@ class LoansController extends Controller
 
         $user_id = ($user->id);
 
-        $beg = Loan_requests::all(); 
+        $beg = Loan_requests::all()->where('users_id',$user_id); 
   
         return view('beg',['user_id'=>$user_id,'beg'=>$beg]);
    }
@@ -35,6 +36,13 @@ class LoansController extends Controller
     {
         $beg = Loan_requests::all(); 
         return view('beggers',['beg'=>$beg]);
+    }
+
+    function test()
+    {
+        // here is where the temporary insertion is done but can go through the view
+        return Loan_requests::find(2)->getuser;
+        // return Loan_requests::find(2);
     }
 
 

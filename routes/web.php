@@ -19,7 +19,7 @@ use App\Http\Controllers\LoansController;
 //     return view('welcome');
 // });
 
-Route::get('/',[UsersController::class,'index']);
+Route::get('/dog',[LoansController::class,'test']);
 
 Route::view('register','register');
 

@@ -6,6 +6,16 @@
         @csrf
         <input type="hidden" name="id">
         <input type="hidden" name="users_id" value="{{ $user_id }}">
+        <select name="LoanType" required>
+            <option value="" disabled selected hidden>Loan type</option>
+            <option value="1">Personal loan</option>
+            <option value="2">Mortgage</option>
+            <option value="3">Student loan</option>
+            <option value="4"> Auto loan</option>
+            <option value="5">Payday loan</option>
+            <option value="6">Pawn shop loan</option>
+            <option value="7">Small business loan</option>
+          </select>  <br><br> 
         <input type="bigint" name="amount" placeholder="Fill amount requested"><br><br>
         <button type="submit">Submit</button>
     </form>
@@ -18,16 +28,23 @@
 <table border="1">
     <tr>
         <td>Loan Id</td>
-        <td>Loan Title</td>
+        <td>Begger</td>
+        <td>Loan Type</td>
         <td>Amount</td>
     </tr>
 
     @foreach ($beg as $beg)
     <tr>
         <td>{{ $beg['id'] }}</td>
-        <td>{{-- {{ $beg['LoanTite'] }}--}}??</td>
+        <td>{{ $beg['users_id'] }}</td>
+        <td>{{ $beg['LoanType'] }}</td>
         <td>{{ $beg['amount'] }}</td>
     </tr>   
     @endforeach
 
 </table>
+
+
+{{--
+    ABOUT THE LOAN TYPES
+    https://www.lendingtree.com/personal/different-types-of-personal-loans/ --}}
