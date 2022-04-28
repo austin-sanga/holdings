@@ -35,15 +35,29 @@ class LoansController extends Controller
     function beggers()
     {
         $beg = Loan_requests::all(); 
-        return view('beggers',['beg'=>$beg]);
+        $test = ($beg->users_id);
+        $beggerid = Loan_requests::find($test)->LoanUser;
+        $papi = ($beggerid->name);
+        return view('beggers',['beg'=>$beg,'papi'=>$papi]);
     }
 
     function test()
     {
+        /* 
+        trying to test on calling a specific column on all selection
+        */
         // here is where the temporary insertion is done but can go through the view
-        return Loan_requests::find(2)->getuser;
-        // return Loan_requests::find(2);
+       $test=  Loan_requests::all();
+       $beg = ($test->users_id);
+       return $beg;
+
     }
+
+    // function test()
+    // {
+    //     // here is where the temporary insertion is done but can go through the view
+    //    return Loan_requests::find(2)->LoanUser;   
+    // }
 
 
 }

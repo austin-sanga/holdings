@@ -34,10 +34,10 @@ class Loan_requests extends Model
 
     }
 
-    function LoanUser()
+    public function LoanUser()
     {
-        // seecond paramenter at the end defines foreign key
-        return $this->belongsTo(User::class,'users_id');
+        // seecond parameter at the end defines foreign key
+        return $this->belongsTo(User::class,'id');
     }
 
 }
