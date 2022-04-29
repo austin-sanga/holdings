@@ -66,6 +66,19 @@ class LoansController extends Controller
 
         return redirect('beg'); 
     }
+
+    function delete($id)
+    {
+        Loan_requests::find($id)->delete();
+        session()->flash('status','Restaurant deleted successfully');
+        return redirect('beg');
+    }
+
+
+
+
+
+
     // function test()
     // {
     //     $beg = Loan_requests::all();

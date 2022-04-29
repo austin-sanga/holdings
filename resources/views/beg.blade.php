@@ -33,7 +33,8 @@
         <td>Loan Id</td>
         <td>Loan Type</td>
         <td>Amount</td>
-        <td>operation</td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
 
     @foreach ($beg as $beg)
@@ -42,6 +43,7 @@
         <td>{{ $beg['LoanType'] }}</td>
         <td>{{ $beg['amount'] }}</td>
         <td><a href="/editrequest/{{ $beg->id }}">edit</a></td>
+        <td><a href="/deleterequest/{{ $beg->id }}">delete</a></td>
     </tr>   
     @endforeach
 
