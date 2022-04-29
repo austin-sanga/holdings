@@ -1,5 +1,6 @@
 <h1>See list of borrowers</h1>
-<a href="/logout">Logout</a>
+<a href="/logout">Logout</a>&nbsp;&nbsp;
+<a href="/dashboard">dash</a>
 <table border="1">
     <tr>
         <td>Loan Id</td>

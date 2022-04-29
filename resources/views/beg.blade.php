@@ -1,6 +1,7 @@
 <h1>Request for Loan Page</h1>
 
-<a href="/logout">Logout</a>
+<a href="/logout">Logout</a>&nbsp;&nbsp;
+<a href="/dashboard">dash</a>
 
 <fieldset>
     <legend>Request Loan</legend>
