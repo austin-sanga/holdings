@@ -1,5 +1,7 @@
 <h1>Request for Loan Page</h1>
 
+<a href="/logout">Logout</a>
+
 <fieldset>
     <legend>Request Loan</legend>
     <form action="/LoanRequest" method="post">
@@ -30,6 +32,7 @@
         <td>Loan Id</td>
         <td>Loan Type</td>
         <td>Amount</td>
+        <td>operation</td>
     </tr>
 
     @foreach ($beg as $beg)
@@ -37,6 +40,7 @@
         <td>{{ $beg['id'] }}</td>
         <td>{{ $beg['LoanType'] }}</td>
         <td>{{ $beg['amount'] }}</td>
+        <td><a href="/editrequest/{{ $beg->id }}">edit</a></td>
     </tr>   
     @endforeach
 

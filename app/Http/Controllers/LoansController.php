@@ -35,29 +35,61 @@ class LoansController extends Controller
     function beggers()
     {
         $beg = Loan_requests::all(); 
-        $test = ($beg->users_id);
-        $beggerid = Loan_requests::find($test)->LoanUser;
-        $papi = ($beggerid->name);
-        return view('beggers',['beg'=>$beg,'papi'=>$papi]);
+        return view('beggers',['beg'=>$beg]);
+
+
     }
 
-    function test()
+    function edit($id)
     {
-        /* 
-        trying to test on calling a specific column on all selection
-        */
-        // here is where the temporary insertion is done but can go through the view
-       $test=  Loan_requests::all();
-       $beg = ($test->users_id);
-       return $beg;
+        $user = auth()->user();
 
+        $user_id = ($user->id);
+
+        $beg = Loan_requests::all()->where('users_id',$user_id); 
+
+        $data = Loan_requests::find($id);
+        return view('editrequest',['data'=>$data,'user_id'=>$user_id]);
     }
 
+
+    function update(Request $req)
+    {
+        $loan = Loan_requests::find($req->id);
+        $loan->users_id = $req->users_id;
+        $loan->LoanType=$req->LoanType;
+        $loan->amount=$req->amount;
+        $loan->save();
+
+        // flash session initiation
+        $req->session()->flash('status','Restaurant updated succesfully'); 
+
+        return redirect('beg'); 
+    }
     // function test()
     // {
-    //     // here is where the temporary insertion is done but can go through the view
-    //    return Loan_requests::find(2)->LoanUser;   
+    //     $beg = Loan_requests::all();
+    //     return view('test',['beg'=>$beg]); 
+         
     // }
+
+    /* function test()
+    {
+        $count = User::count();
+        $data=$count;
+        for ($i=1; $i <$data ; $i++) { 
+         $pass = Loan_requests::find(users_id,$i)->LoanUser; 
+         $test=$pass->name;
+         print $test.",";    
+        }
+         
+    } */
+
+   /*  function test()
+    {
+        // here is where the temporary insertion is done but can go through the view
+       return Loan_requests::find(2)->LoanUser;   
+    } */
 
 
 }

@@ -38,3 +38,7 @@ Route::post('/LoanRequest',[LoansController::class,'LoanRequest']);
 Route::get('/beg',[LoansController::class,'beg']);
 
 Route::get('/beggers',[LoansController::class,'beggers']);
+
+Route::get('/editrequest/{id}',[LoansController::class,'edit']);
+
+Route::post('/update',[LoansController::class,'update']);
