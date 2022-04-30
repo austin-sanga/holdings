@@ -17,7 +17,7 @@
         <td>{{ $beg['users_id'] }}</td>
         <td>{{ $beg['LoanType'] }}</td>
         <td>{{ $beg['amount'] }}</td>
-        <td><a href="/bid/{{ $id->id }}">bid</a></td>
+        <td><a href="/bid/{{ $beg->id }}">bid</a></td>
     </tr>   
     @endforeach
 

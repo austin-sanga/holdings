@@ -34,6 +34,7 @@ class LoansController extends Controller
     
     function beggers()
     {
+        
         $beg = Loan_requests::all(); 
         return view('beggers',['beg'=>$beg]);
 
@@ -51,7 +52,7 @@ class LoansController extends Controller
         $data = Loan_requests::find($id);
 
         return view('editrequest',['data'=>$data,'user_id'=>$user_id]);
-    }
+    }  
 
 
     function update(Request $req)
@@ -77,15 +78,13 @@ class LoansController extends Controller
 
     function bid($id)
     {
-        // nmeishia hapa
-
-        $data =Loan_requests::find($id);
-        return view('bid',['id'=>$data]);
+        
         /* 
         create migration - bids
             column-id PK,loan_id FK,user_id FK,interest, paytype, graceperiod 
 
         create model - bid
+        
         create a bid page - atakuta details of loan by  borrower, then atafanya recommend terms zake
 
         create agree function - hii ni kama atakubaliana na paytype na graceperiod ya muombaji
