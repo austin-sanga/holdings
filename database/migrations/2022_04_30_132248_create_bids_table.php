@@ -19,8 +19,13 @@ class CreateBidsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->decimal('interest');
             $table->string('PayType');
+            $table->integer('IntervalPay');
             $table->string('GracePeriod');
             $table->timestamps();
+            $table->foreign('user_id')
+            ->references('id')->on('users')->ondelete('cascade');
+            $table->foreign('loan_id')
+            ->references('id')->on('loan_request')->ondelete('cascade');
         });
     }
 

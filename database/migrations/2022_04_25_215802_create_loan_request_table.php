@@ -18,6 +18,9 @@ class CreateLoanRequestTable extends Migration
             $table->unsignedBigInteger('users_id');
             $table->integer('LoanType');
             $table->Biginteger('amount');
+            $table->string('PayType');
+            $table->integer('IntervalPay');
+            $table->string('GracePeriod');
             $table->timestamps();
             $table->foreign('users_id')
             ->references('id')->on('users')->ondelete('cascade');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Loan_requests;
 use App\Models\User;
+use App\Models\Bid;
 
 class LoansController extends Controller
 {
@@ -14,6 +15,9 @@ class LoansController extends Controller
         $loan = new Loan_requests;
         $loan->users_id = $req->users_id;
         $loan->LoanType=$req->LoanType;
+        $loan->PayType=$req->PayType;
+        $loan->IntervalPay=$req->IntervalPay;
+        $loan->GracePeriod=$req->GracePeriod;
         $loan->amount=$req->amount;
         $loan->save();
 
@@ -76,15 +80,17 @@ class LoansController extends Controller
         return redirect('beg');
     }
 
-    function bid($id)
+    function bid()
     {
         
-        /* 
-        create migration - bids
-            column-id PK,loan_id FK,user_id FK,interest, paytype, graceperiod 
+        return view('bid');
 
-        create model - bid
+
+        /* 
         
+
+        
+
         create a bid page - atakuta details of loan by  borrower, then atafanya recommend terms zake
 
         create agree function - hii ni kama atakubaliana na paytype na graceperiod ya muombaji
@@ -97,6 +103,11 @@ class LoansController extends Controller
         pre; borrower- ajaze paytype,refundamount ,graceperiod 
                 ntaziongeza kwa loan request
          */
+
+    }
+
+    function SBid()
+    {
 
     }
 
