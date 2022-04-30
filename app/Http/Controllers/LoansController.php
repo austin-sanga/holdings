@@ -100,8 +100,7 @@ class LoansController extends Controller
         this bidfunction - kumpeleka mtu to required bid page na hizo data
 
 
-        pre; borrower- ajaze paytype,refundamount ,graceperiod 
-                ntaziongeza kwa loan request
+       bado mtu aweze kudit all this.
          */
 
     }
