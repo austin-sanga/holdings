@@ -25,7 +25,7 @@ class UsersController extends Controller
 
          $result = $user->save();
 
-            return redirect('login');
+            return view('register');
     }
 
     function login(Request $req)

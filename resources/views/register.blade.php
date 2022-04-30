@@ -1,4 +1,6 @@
 <h1>Registration</h1>
+<a href="/logout">Logout</a>&nbsp;&nbsp;
+<a href="/dashboard">dash</a> <br><br>
 <form action="/register" method="POST">
     @csrf
     <input type="hidden" name="id">

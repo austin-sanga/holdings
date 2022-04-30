@@ -49,6 +49,7 @@ class LoansController extends Controller
         $beg = Loan_requests::all()->where('users_id',$user_id); 
 
         $data = Loan_requests::find($id);
+
         return view('editrequest',['data'=>$data,'user_id'=>$user_id]);
     }
 
@@ -73,6 +74,39 @@ class LoansController extends Controller
         session()->flash('status','Restaurant deleted successfully');
         return redirect('beg');
     }
+
+    function bid($id)
+    {
+        // nmeishia hapa
+
+        $data =Loan_requests::find($id);
+        return view('bid',['id'=>$data]);
+        /* 
+        create migration - bids
+            column-id PK,loan_id FK,user_id FK,interest, paytype, graceperiod 
+
+        create model - bid
+        create a bid page - atakuta details of loan by  borrower, then atafanya recommend terms zake
+
+        create agree function - hii ni kama atakubaliana na paytype na graceperiod ya muombaji
+
+        create submitbidfunction - hii itasave bid agreement.... to create description
+
+        this bidfunction - kumpeleka mtu to required bid page na hizo data
+
+
+        pre; borrower- ajaze paytype,refundamount ,graceperiod 
+                ntaziongeza kwa loan request
+         */
+
+    }
+
+
+
+
+
+
+
 
 
 

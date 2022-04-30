@@ -1,12 +1,14 @@
 <h1>See list of borrowers</h1>
 <a href="/logout">Logout</a>&nbsp;&nbsp;
-<a href="/dashboard">dash</a>
+<a href="/dashboard">dash</a><br><br>
+
 <table border="1">
     <tr>
         <td>Loan Id</td>
         <td>Begger</td>
         <td>Loan Type</td>
         <td>Amount</td>
+        <td>Interest</td>
     </tr>
 
     @foreach ($beg as $beg)
@@ -15,6 +17,7 @@
         <td>{{ $beg['users_id'] }}</td>
         <td>{{ $beg['LoanType'] }}</td>
         <td>{{ $beg['amount'] }}</td>
+        <td><a href="/bid/{{ $id->id }}">bid</a></td>
     </tr>   
     @endforeach
 
