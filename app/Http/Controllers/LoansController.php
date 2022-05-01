@@ -64,6 +64,9 @@ class LoansController extends Controller
         $loan = Loan_requests::find($req->id);
         $loan->users_id = $req->users_id;
         $loan->LoanType=$req->LoanType;
+        $loan->PayType=$req->PayType;
+        $loan->IntervalPay=$req->IntervalPay;
+        $loan->GracePeriod=$req->GracePeriod;
         $loan->amount=$req->amount;
         $loan->save();
 
