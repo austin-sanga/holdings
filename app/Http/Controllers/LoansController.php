@@ -71,7 +71,7 @@ class LoansController extends Controller
         $loan->save();
 
         // flash session initiation
-        $req->session()->flash('status','Restaurant updated succesfully'); 
+        $req->session()->flash('status','Loan Request updated succesfully'); 
 
         return redirect('beg'); 
     }
@@ -79,7 +79,7 @@ class LoansController extends Controller
     function delete($id)
     {
         Loan_requests::find($id)->delete();
-        session()->flash('status','Restaurant deleted successfully');
+        session()->flash('status','Loan Request deleted successfully');
         return redirect('beg');
     }
 
@@ -106,9 +106,27 @@ class LoansController extends Controller
 
     }
 
-    function SBid()
+    function SBid(Request $req)
     {
+        $data = Loan_requests::find($req->id);
+        $loan_id=($data->id);
+        $user_id=($data->users_id);
+        $PayType=($data->PayType);
+        $IntervalPay=($data->IntervalPay);
+        $GracePeriod=($data->GracePeriod);
 
+       $Bid = new Bid;
+       $Bid->loan_id=$loan_id;
+       $Bid->user_id=$user_id;
+       $Bid->interest=$req->interest;
+       $Bid->PayType=$PayType;
+       $Bid->IntervalPay=$IntervalPay;
+       $Bid->GracePeriod=$GracePeriod;
+       $Bid->save();
+
+       session()->flash('status','Bid Placed successfully');
+
+       return redirect('/beggers');
     }
 
 

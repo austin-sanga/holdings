@@ -46,3 +46,5 @@ Route::post('/update',[LoansController::class,'update']);
 Route::get('/deleterequest/{id}',[LoansController::class,'delete']);
 
 Route::get('/bid/{id}',[LoansController::class,'bid']);
+
+Route::post('/SBid/{id}',[LoansController::class,'SBid']);
