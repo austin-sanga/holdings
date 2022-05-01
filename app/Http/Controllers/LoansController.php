@@ -83,16 +83,16 @@ class LoansController extends Controller
         return redirect('beg');
     }
 
-    function bid()
+    function bid(Request $req)
     {
-        
-        return view('bid');
+        $data = Loan_requests::find($req->id);
+        return view('bid',['data'=>$data]);
 
 
         /* 
         
 
-        
+        $loan = Loan_requests::find($req->id);
 
         create a bid page - atakuta details of loan by  borrower, then atafanya recommend terms zake
 
@@ -102,8 +102,6 @@ class LoansController extends Controller
 
         this bidfunction - kumpeleka mtu to required bid page na hizo data
 
-
-       bado mtu aweze kudit all this.
          */
 
     }
