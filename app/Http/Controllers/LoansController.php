@@ -94,9 +94,7 @@ class LoansController extends Controller
 
         $loan = Loan_requests::find($req->id);
 
-        create a bid page - atakuta details of loan by  borrower, then atafanya recommend terms zake
-
-        create agree function - hii ni kama atakubaliana na paytype na graceperiod ya muombaji
+        create a bid page -  atafanya recommend terms zake
 
         create submitbidfunction - hii itasave bid agreement.... to create description
 
@@ -129,6 +127,25 @@ class LoansController extends Controller
        return redirect('/beggers');
     }
 
+    function Mybid(Request $req)
+    {
+        $data = Loan_requests::find($req->id);
+        $loan_id=($data->id);
+        $user_id=($data->users_id);
+        
+       $Bid = new Bid;
+       $Bid->loan_id=$loan_id;
+       $Bid->user_id=$user_id;
+       $Bid->interest=$req->interest;
+       $Bid->PayType=$req->PayType;
+       $Bid->IntervalPay=$req->IntervalPay;
+       $Bid->GracePeriod=$req->GracePeriod;
+       $Bid->save();
+
+    //    session()->flash('status','Bid Placed successfully');
+
+    return redirect('/beggers');
+    }
 
 
 
