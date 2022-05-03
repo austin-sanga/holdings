@@ -29,7 +29,7 @@ class CreateBidsTable extends Migration
         });
     }
 
-    /**
+    /**aa
      * Reverse the migrations.
      *
      * @return void

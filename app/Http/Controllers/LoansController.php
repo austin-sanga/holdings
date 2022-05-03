@@ -51,7 +51,7 @@ class LoansController extends Controller
 
         $user_id = ($user->id);
 
-        $beg = Loan_requests::all()->where('users_id',$user_id); 
+        // $beg = Loan_requests::all()->where('users_id',$user_id); 
 
         $data = Loan_requests::find($id);
 
@@ -135,9 +135,9 @@ class LoansController extends Controller
 
     function Viewbids(Request $req, $id)
     {
-        return Bid::where('user_id',$id);
-        // nmekwama kuifanya bids ivute specific data
-        // return view('LoanBIds');
+        $data =  Bid::where('loan_id',$id)->get();
+    
+        return view('LoanBIds',['data'=>$data]);
 
         /* 
         Add a section of view bids on the beg
