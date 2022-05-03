@@ -51,6 +51,7 @@
         <td>Amount</td>
         <td>Edit</td>
         <td>Delete</td>
+        <td>Bids</td>
     </tr>
 
     @foreach ($beg as $beg)
@@ -60,6 +61,7 @@
         <td>{{ $beg['amount'] }}</td>
         <td><a href="/editrequest/{{ $beg->id }}">edit</a></td>
         <td><a href="/deleterequest/{{ $beg->id }}">delete</a></td>
+        <td><a href="/viewbids/{{ $beg->id }}">View</a></td> 
     </tr>   
     @endforeach
 

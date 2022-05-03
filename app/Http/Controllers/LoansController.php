@@ -88,20 +88,6 @@ class LoansController extends Controller
         $data = Loan_requests::find($req->id);
         return view('bid',['data'=>$data]);
 
-
-        /* 
-        
-
-        $loan = Loan_requests::find($req->id);
-
-        create a bid page -  atafanya recommend terms zake
-
-        create submitbidfunction - hii itasave bid agreement.... to create description
-
-        this bidfunction - kumpeleka mtu to required bid page na hizo data
-
-         */
-
     }
 
     function SBid(Request $req)
@@ -142,9 +128,25 @@ class LoansController extends Controller
        $Bid->GracePeriod=$req->GracePeriod;
        $Bid->save();
 
-    //    session()->flash('status','Bid Placed successfully');
+       session()->flash('status','Bid Placed successfully');
 
     return redirect('/beggers');
+    }
+
+    function Viewbids(Request $req, $id)
+    {
+        return Bid::where('user_id',$id);
+        // nmekwama kuifanya bids ivute specific data
+        // return view('LoanBIds');
+
+        /* 
+        Add a section of view bids on the beg
+
+        create page for viewing the Bids
+
+        Pull all the bids of that loan request 
+
+        */
     }
 
 
