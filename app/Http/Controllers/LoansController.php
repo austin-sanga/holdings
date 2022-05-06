@@ -135,17 +135,24 @@ class LoansController extends Controller
 
     function Viewbids(Request $req, $id)
     {
-        $data =  Bid::where('loan_id',$id)->get();
+        $viewbid =  Bid::where('loan_id',$id)->get();
     
-        return view('LoanBIds',['data'=>$data]);
+        return view('LoanBIds',['viewbid'=>$viewbid]);
 
     }
 
     function acceptbid()
     {
+        return view('LoanContract');
 
         /* 
-        make part for accept bid in bid page
+        
+
+        kuongeza part ya kucounter
+
+        dummy draft contract
+
+        tengeneza part ya giver kuona watu alio wabidia
 
         accept bid function
 

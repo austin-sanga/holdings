@@ -52,3 +52,5 @@ Route::post('/SBid/{id}',[LoansController::class,'SBid']);
 Route::post('/Mybid/{id}',[LoansController::class,'Mybid']);
 
 Route::get('/viewbids/{id}',[LoansController::class,'Viewbids']);
+
+Route::get('/acceptbid/{id}',[LoansController::class,'acceptbid']);
