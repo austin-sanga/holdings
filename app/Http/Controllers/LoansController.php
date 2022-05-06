@@ -139,13 +139,21 @@ class LoansController extends Controller
     
         return view('LoanBIds',['data'=>$data]);
 
+    }
+
+    function acceptbid()
+    {
+
         /* 
-        Add a section of view bids on the beg
+        make part for accept bid in bid page
 
-        create page for viewing the Bids
+        accept bid function
 
-        Pull all the bids of that loan request 
+        soft delete all other bids associated with loan/ au zihamishe to rejected bids where they will be deleted
 
+        the uweke na option ya kucounter bid
+
+        decline a bid all the way/ this deletes all the way
         */
     }
 
