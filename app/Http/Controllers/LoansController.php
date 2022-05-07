@@ -78,6 +78,7 @@ class LoansController extends Controller
 
     function delete($id)
     {
+        Bid::where('bids.loan_id', $id)->delete();
         Loan_requests::find($id)->delete();
         session()->flash('status','Loan Request deleted successfully');
         return redirect('beg');
@@ -141,9 +142,25 @@ class LoansController extends Controller
 
     }
 
-    function acceptbid()
+    function acceptbid($id)
     {
-        return view('LoanContract');
+        $data = Bid::find($id);/* this pulls id from the url, id belongs to bid */
+
+        $loandataid = ($data->loan_id);/* obtaining the id of the borrower */
+        $loandata = Loan_requests::find($loandataid);/* this passes loan data stuffs from loan request*/
+        $borrowerid = ($loandata->users_id);
+        $borrower = User::find($borrowerid);
+
+        $lenderid = ($data->user_id);/* obtained the id of the lender */
+        $lender = User::find($lenderid);
+
+        $won = now('EAT');/* passing time of the contract */
+        $now = $won->toFormattedDateString();
+
+        
+        return view('LoanContract',['borrower'=>$borrower, 'lender'=>$lender, 'now'=>$now,'loandata'=>$loandata,'data'=>$data]);
+
+
 
         /* 
         
@@ -172,15 +189,13 @@ class LoansController extends Controller
 
 
 
-
-
-
-    // function test()
-    // {
-    //     $beg = Loan_requests::all();
-    //     return view('test',['beg'=>$beg]); 
+    function test()
+    {
+        $won = now('EAT'); /* obtains current date in the East Africa Timezone */
+        $now = $won->toFormattedDateString(); /* converts to the format */
+        return view('test',['now'=>$now]);  /* passes to the test view */
          
-    // }
+    }
 
     /* function test()
     {
