@@ -93,9 +93,12 @@ class LoansController extends Controller
 
     function SBid(Request $req)
     {
+        $user = auth()->user();
+
+        $user_id = ($user->id);/* this brings the logged in user id */
+
         $data = Loan_requests::find($req->id);
         $loan_id=($data->id);
-        $user_id=($data->users_id);
         $PayType=($data->PayType);
         $IntervalPay=($data->IntervalPay);
         $GracePeriod=($data->GracePeriod);
@@ -116,9 +119,13 @@ class LoansController extends Controller
 
     function Mybid(Request $req)
     {
+        $user = auth()->user();
+
+        $user_id = ($user->id);/* this brings the logged in user id */
+        
         $data = Loan_requests::find($req->id);
         $loan_id=($data->id);
-        $user_id=($data->users_id);
+       
         
        $Bid = new Bid;
        $Bid->loan_id=$loan_id;
