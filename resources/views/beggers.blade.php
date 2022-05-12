@@ -35,15 +35,15 @@
         <td>status</td>
     </tr>
 
-    {{-- @foreach ($beg as $beg)
+    @foreach ($userbids as $userbids)
     <tr>
-        <td>{{ $beg['id'] }}</td>
-        <td>{{ $beg['users_id'] }}</td>
-        <td>{{ $beg['LoanType'] }}</td>
-        <td>{{ $beg['amount'] }}</td>
-        <td><a href="#">View</a></td>
-        <td><a href="/bid/{{ $beg->id }}">bid</a></td>
+        <td>{{ $userbids['id'] }}</td>
+        <td>..</td>
+        <td>{{ $userbids['LoanType'] }}</td>
+        <td>{{ $userbids['amount'] }}</td>
+        <td>..</td>
+        <td>..</td>
     </tr>   
-    @endforeach --}}
+    @endforeach 
 
 </table>

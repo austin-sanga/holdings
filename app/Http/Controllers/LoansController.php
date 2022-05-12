@@ -38,9 +38,15 @@ class LoansController extends Controller
     
     function beggers()
     {
+        // obtaining loop from different sources
+        $user = auth()->user();
+        $user_id = ($user->id);/* this calls for data of logged in user */
+
+        $ubids = Bid::select('loan_id')->where('user_id',$user_id);
+        $userbids = Loan_requests::where('id',$ubids)->get();
         
         $beg = Loan_requests::all(); 
-        return view('beggers',['beg'=>$beg]);
+        return view('beggers',['beg'=>$beg,'userbids'=>$userbids]);
 
 
     }
@@ -198,7 +204,7 @@ class LoansController extends Controller
 
     function test()
     {
-        $won = now('EAT'); /* obtains current date in the East Africa Timezone */
+        $won = now('EAT')->addDays(30); /* obtains current date in the East Africa Timezone */
         $now = $won->toFormattedDateString(); /* converts to the format */
         return view('test',['now'=>$now]);  /* passes to the test view */
          
