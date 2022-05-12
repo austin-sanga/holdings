@@ -191,6 +191,11 @@ class LoansController extends Controller
         the uweke na option ya kucounter bid
 
         decline a bid all the way/ this deletes all the way
+
+        grace period- has to be input as a duration
+        final day of payment-start of contract + grace period + period of pay
+        interval pay- has not to be filled but rather auto calculated
+
         */
     }
 
@@ -204,7 +209,7 @@ class LoansController extends Controller
 
     function test()
     {
-        $won = now('EAT')->addDays(30); /* obtains current date in the East Africa Timezone */
+        $won = now('EAT')->addDays(7); /* obtains current date in the East Africa Timezone */
         $now = $won->toFormattedDateString(); /* converts to the format */
         return view('test',['now'=>$now]);  /* passes to the test view */
          
