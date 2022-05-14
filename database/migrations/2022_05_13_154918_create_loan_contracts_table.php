@@ -18,12 +18,16 @@ class CreateLoanContractsTable extends Migration
             $table->unsignedBigInteger('lender_id');
             $table->unsignedBigInteger('borrower_id');
             $table->integer('LoanType');
-            $table->Biginteger('amount');
+            $table->Biginteger('amount');   
             $table->decimal('interest');
             $table->string('GracePeriod');
             $table->string('PayType');
             $table->integer('IntervalPay');
             $table->timestamps();
+            $table->foreign('lender_id')
+            ->references('id')->on('users')->ondelete('cascade');
+            $table->foreign('borrower_id')
+            ->references('id')->on('users')->ondelete('cascade');
         });
     }
 
