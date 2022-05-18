@@ -42,11 +42,11 @@ class LoansController extends Controller
         $user = auth()->user();
         $user_id = ($user->id);/* this calls for data of logged in user */
 
-        $ubids = Bid::select('loan_id')->where('user_id',$user_id);
-        $userbids = Loan_requests::where('id',$ubids)->get();
+        /* $ubids = Bid::select('loan_id')->where('user_id',$user_id);
+        $userbids = Loan_requests::where('id',$ubids)->get(); */
         
         $beg = Loan_requests::all(); 
-        return view('beggers',['beg'=>$beg,'userbids'=>$userbids]);
+        return view('beggers',['beg'=>$beg/* ,'userbids'=>$userbids */]);
 
 
     }
