@@ -25,7 +25,7 @@
 <br><br>
 
 <h2>Deals Interested in</h2>
-{{-- <table border="1">
+<table border="1">
     <tr>
         <td>Loan Id</td>
         <td>Begger</td>
@@ -46,4 +46,4 @@
     </tr>   
     @endforeach 
 
-</table> --}}
+</table>
