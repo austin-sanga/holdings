@@ -15,11 +15,11 @@ use App\Http\Controllers\LoansController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get('/',[LoansController::class,'test']);
+
+
+// Routes associated with user management
 
 Route::view('register','register');
 
@@ -32,6 +32,8 @@ Route::post('/login',[UsersController::class,'login']);
 Route::get('/logout',[UsersController::class,'logout']);
 
 Route::get('/dashboard',[UsersController::class,'dashboard']);
+
+// Routes asscociated with loan side
 
 Route::post('/LoanRequest',[LoansController::class,'LoanRequest']);
 
@@ -54,3 +56,6 @@ Route::post('/Mybid/{id}',[LoansController::class,'Mybid']);
 Route::get('/viewbids/{id}',[LoansController::class,'Viewbids']);
 
 Route::get('/acceptbid/{id}',[LoansController::class,'acceptbid']);
+
+
+//Route involved with the investment side
